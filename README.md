@@ -13,7 +13,7 @@ gettext, mcrypt, tidy, phar, gettext, imagick, bcmath, amqp, opcache, memcached 
 
 ## Репозиторий Docker Hub
 
-Расположение образа в Docker Hub: [https://hub.docker.com/](https://hub.docker.com/)
+Расположение образа в Docker Hub: [https://hub.docker.com/r/pgallery/php-fpm/](https://hub.docker.com/r/pgallery/php-fpm/)
 
 ## Использование Docker Hub
 
@@ -24,12 +24,12 @@ sudo docker pull pgallery/php-fpm
 ## Запуск
 
 ```
-docker run -d --name myapp \
+docker run -d --name phpfpm \
     -v /home/username/sitename/www/:/var/www/html/ \
     pgallery/php-fpm
 
 docker run -d -p 80:80 -p 443:443 \
-    --link myapp:myapp \
+    --link phpfpm:phpfpm \
     -v /home/username/sitename/www/:/var/www/html/ \
     -v /home/username/sitename/logs/:/var/log/nginx/ \
     pgallery/nginx
