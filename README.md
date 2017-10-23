@@ -2,10 +2,7 @@
 
 Это Dockerfile, позволяющие собрать простой образ для Docker с PHP-FPM 7.1. Имеется возможность изменения параметров PHP.
 
-### PHP собран с поддержкой следующих модулей
-
- -  gd, mysqli, pdo, pdo_mysql, intl, dom, xml, xsl, xmlrpc, zip, bz2, fileinfo, curl, iconv, json, soap, calendar, 
-gettext, mcrypt, tidy, phar, gettext, imagick, bcmath, amqp, opcache, memcached , redis
+Собран на основе образа: [https://github.com/pgallery/php](https://github.com/pgallery/php)
 
 ## Репозиторий Git
 
