@@ -2,7 +2,7 @@
 
 set -e
 
-phpinifpm=/usr/local/etc/php/php.ini
+PHPINI=/usr/local/etc/php/php.ini
 
 # php environment
 PHP_ALLOW_URL_FOPEN=${PHP_ALLOW_URL_FOPEN:-On}
@@ -27,7 +27,7 @@ if [ -f /var/www/html/config/php/pool.conf ]; then
 fi
 
 if [ -f /var/www/html/config/php/php.ini ]; then
-    cp /var/www/html/config/php/php.ini ${phpinifpm}
+    cp /var/www/html/config/php/php.ini ${PHPINI}
 else
 
     sed -i \
@@ -41,7 +41,7 @@ else
         -e "s/post_max_size = 8M/post_max_size = ${PHP_POST_MAX_SIZE}M/g" \
         -e "s/allow_url_fopen = On/allow_url_fopen = ${PHP_ALLOW_URL_FOPEN}/g" \
         -e "s/;date.timezone =/date.timezone = ${PHP_TZ}/g" \
-        ${phpinifpm}
+        ${PHPINI}
 
 fi
 
