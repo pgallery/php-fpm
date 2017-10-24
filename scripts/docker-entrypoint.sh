@@ -22,12 +22,8 @@ PHP_TZ=`echo ${PHP_TIMEZONE} |sed  's|\/|\\\/|g'`
 ln -snf /usr/share/zoneinfo/${PHP_TIMEZONE} /etc/localtime
 dpkg-reconfigure -f noninteractive tzdata
 
-sed -i "s/;daemonize\s*=\s*yes/daemonize = no/g" /usr/local/etc/php-fpm.conf
-
 if [ -f /var/www/html/config/php/pool.conf ]; then
     cp /var/www/html/config/php/pool.conf /usr/local/etc/php-fpm.d/www.conf
-else
-    sed -i "s/listen = 127.0.0.1:9000/listen = 0.0.0.0:9000/g" /usr/local/etc/php-fpm.d/www.conf
 fi
 
 if [ -f /var/www/html/config/php/php.ini ]; then
